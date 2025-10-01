@@ -1,6 +1,6 @@
 # Disclaimer
 
-This config is for Omarchy operating systems, it was designed on an omarchy desktop.
+This config is for Omarchy operating systems, it was designed on an omarchy desktop. Master refers to omarchy, shouldn't matter too much I don't think.
 
 # Notes
 
