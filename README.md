@@ -1,16 +1,12 @@
 # Disclaimer
 
-This config is for Omarchy operating systems, it was designed on an omarchy desktop. Master refers to omarchy, shouldn't matter too much I don't think.
+This config is for the Omarchy operating systems, it was designed on an Omarchy desktop. The master branch refers to Omarchy, shouldn't matter too much I don't think.
 
 # Notes
 
-You should make sure to comment out the config files form the .local dir when you are don't with a file since if you have not overwritten a keybind then it will remain in the pc. Make sure not to edit any files in the .local since then the next update may make a merge conflict.
+You should make sure to comment out the config files form the .local dir when you are done with a file, since if you have not overwritten a keybind then it will remain in the runtime. Make sure not to edit any files in the .local since then the next update may make a merge conflict.
 
-You need to run
-hyprctl monitors
-to get the monitor name and then add it to the monitors.conf file in case f a new hdmi device.
+to get the monitor name and then add it to the monitors.conf file in case of a new hdmi device run:
+```hyprctl monitors```
 
 # Todo
-
-- [ ] Make init commands for opening the common applications on startup (now in the hook file)
-- [ ] Fix the last util keybind file
