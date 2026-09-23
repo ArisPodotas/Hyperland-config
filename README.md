@@ -16,4 +16,4 @@ and
 
 # Todo
 
-- [ ] Migrate to lua
+- [ x ] Migrate to lua
