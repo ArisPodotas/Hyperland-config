@@ -1,5 +1,3 @@
-local osdclient = "swayosd-client --monitor \"$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')\""
-
 -- Laptop multimedia keys for volume and LCD brightness (with OSD)
 o.bind(eld = SUPER, M, Mute, exec, $osdclient --output-volume mute-toggle
 o.bind(eld = SUPER SHIFT, M, Mute microphone, exec, $osdclient --input-volume mute-toggle
@@ -22,17 +20,6 @@ o.bind(eld = SUPER SHIFT, F3, Brightness down precise, exec, $osdclient --bright
 -- o.bind(ld = , XF86AudioPlay, Play, exec, $osdclient --playerctl play-pause
 -- o.bind(ld = , XF86AudioPrev, Previous track, exec, $osdclient --playerctl previous
 --
-
--- Scroll through existing workspaces with SUPER + scroll
-o.bind(SUPER, mouse_up, Scroll active workspace forward, workspace, e+1)
-o.bind(SUPER, mouse_down, Scroll active workspace backward, workspace, e-1)
-
--- Move/resize windows with mainMod + LMB/RMB and dragging
-o.bind(md = SUPER CONTROL, mouse:272, Move window, movewindow
-o.bind(md = SUPER CONTROL, mouse:273, Resize window, resizewindow
-
-o.bind(SHIFT, mouse_down, Zoom in, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.3'))
-o.bind(SHIFT, mouse_up, Zoom out, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.7) | if . < 1 then 1 else . end'))
 
 -- Close windows
 o.bind(CTRL ALT, DELETE, Close all Windows, exec, omarchy-cmd-close-all-windows
@@ -82,19 +69,12 @@ o.bind(SUPER, COMMA, Dismiss last notification, exec, makoctl dismiss
 o.bind(SUPER SHIFT, COMMA, Dismiss all notifications, exec, makoctl dismiss --all
 o.bind(SUPER CTRL, COMMA, Toggle silencing notifications, exec, makoctl mode -t do-not-disturb && makoctl mode | grep -q 'do-not-disturb' && notify-send "Silenced notifications" || notify-send "Enabled notifications"
 
--- Toggle idling
-o.bind(SUPER CTRL, I, Toggle locking on idle, exec, omarchy-toggle-idle
--- Toggle nightlight
-o.bind(SUPER CTRL, N, Toggle nightlight, exec, omarchy-toggle-nightlight
-
 -- Screenshots
 o.bind(, PRINT, Screenshot of region, exec, omarchy-capture-screenshot
 o.bind(SHIFT, PRINT, Screenshot of window, exec, omarchy-capture-screenshot window
 o.bind(CTRL, PRINT, Screenshot of display, exec, omarchy-capture-screenshot output
 -- Color picker
 o.bind(SUPER, PRINT, Color picker, exec, pkill hyprpicker || hyprpicker -a
--- File sharing
-o.bind(CTRL SUPER, S, Share, exec, omarchy-menu share
 
 -- Screen recordings
 o.bind(ALT, PRINT, Screen record a region, exec, omarchy-cmd-screenrecord region
